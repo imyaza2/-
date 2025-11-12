@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تقویم ماه</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#ffffff" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class', // or 'media'
+        theme: {
+          extend: {
+            colors: {
+              'primary': {
+                'DEFAULT': '#3F51B5',
+                'dark': '#2962FF',
+              },
+              'dark-bg': '#0D1A3C',
+              'dark-bg-secondary': '#1A294B',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap');
+      /* Basic styles for the pre-React loading state */
+      body {
+        background-color: #f3f4f6; /* bg-gray-100 */
+      }
+      #root .loading-placeholder {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Vazirmatn', sans-serif;
+        font-size: 1.25rem; /* text-xl */
+        color: #4B5563; /* text-gray-600 */
+        direction: rtl;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #0F172A; /* dark:bg-slate-900 */
+        }
+        #root .loading-placeholder {
+          color: #D1D5DB; /* dark:text-gray-300 */
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "jalali-moment": "https://esm.sh/jalali-moment",
+    "adhan": "https://esm.sh/adhan",
+    "@nestjs/core": "https://aistudiocdn.com/@nestjs/core@^11.1.8",
+    "@nestjs/common": "https://aistudiocdn.com/@nestjs/common@^11.1.8"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-100 dark:bg-slate-900">
+    <div id="root">
+        <!-- This content will be replaced by React, but serves as a loading indicator -->
+        <div class="loading-placeholder">
+          در حال بارگذاری تقویم...
+        </div>
+    </div>
+    <!-- Application script -->
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js').then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }).catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

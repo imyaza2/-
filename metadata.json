@@ -1,0 +1,5 @@
+{
+  "name": "Persian Calendar App",
+  "description": "A web-based Iranian calendar application that displays Jalali, Hijri, and Gregorian dates, along with official holidays and national, religious, and global events. Users can filter events by category and view daily details.",
+  "requestFramePermissions": []
+}

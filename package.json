@@ -1,0 +1,13 @@
+{
+  "name": "persian-calendar-serverless",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler pages dev . --kv=EVENTS_KV",
+    "deploy": "wrangler pages deploy ."
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240512.0",
+    "wrangler": "^3.57.0"
+  }
+}

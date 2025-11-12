@@ -1,0 +1,17 @@
+{
+  "short_name": "تقویم ماه",
+  "name": "تقویم ماه",
+  "description": "یک اپلیکیشن تقویم ایرانی مدرن با قابلیت نمایش رویدادها، اوقات شرعی و یادآوری.",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1f2937",
+  "background_color": "#f9fafb"
+}
