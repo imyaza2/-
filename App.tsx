@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import moment from 'jalali-moment';
+import AppHeader from './components/AppHeader';
 import CalendarHeader from './components/Header';
 import CalendarGrid from './components/CalendarGrid';
 import SettingsModal from './components/SettingsModal';
@@ -222,32 +223,37 @@ const App: React.FC = () => {
   return (
     <div className="font-[Vazirmatn,sans-serif] flex justify-center py-4 sm:py-8">
       <div className="w-full max-w-sm mx-auto bg-white dark:bg-dark-bg shadow-2xl rounded-3xl overflow-hidden min-h-[90vh] flex flex-col">
-        <CalendarHeader
-            currentDate={currentDate}
-            onNextMonth={goToNextMonth}
-            onPreviousMonth={goToPreviousMonth}
-            onGoToToday={goToToday}
-            onOpenSearch={() => setIsSearchModalOpen(true)}
-            onAddEvent={openAddEventModal}
-            onOpenMoreOptions={() => setIsMoreOptionsOpen(true)}
+        <AppHeader
+          onOpenSearch={() => setIsSearchModalOpen(true)}
+          onAddEvent={openAddEventModal}
+          onOpenMoreOptions={() => setIsMoreOptionsOpen(true)}
         />
         
         <div className="flex-grow overflow-y-auto bg-gray-100 dark:bg-dark-bg">
-            <StoryDisplay story={activeStory} />
-            
-            <main className="bg-white dark:bg-dark-bg-secondary px-2">
-                <CalendarGrid
-                    days={daysOfMonth}
-                    events={allEvents}
-                    stories={storiesData}
-                    onDayClick={handleDayClick}
-                />
-            </main>
-            
-            <UpcomingEvents 
-              events={allEvents} 
-              onDeleteEvent={deletePersonalEvent} 
-            />
+          <div className="bg-gray-100 dark:bg-dark-bg flex-shrink-0 border-b-2 border-gray-200 dark:border-gray-800">
+              <StoryDisplay story={activeStory} />
+          </div>
+
+          <CalendarHeader
+              currentDate={currentDate}
+              onNextMonth={goToNextMonth}
+              onPreviousMonth={goToPreviousMonth}
+              onGoToToday={goToToday}
+          />
+          
+          <main className="bg-white dark:bg-dark-bg-secondary px-2">
+              <CalendarGrid
+                  days={daysOfMonth}
+                  events={allEvents}
+                  stories={storiesData}
+                  onDayClick={handleDayClick}
+              />
+          </main>
+          
+          <UpcomingEvents 
+            events={allEvents} 
+            onDeleteEvent={deletePersonalEvent} 
+          />
         </div>
       </div>
 
